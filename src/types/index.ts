@@ -16,9 +16,23 @@ export interface Task {
 
 // TASK COMPONENT PROPS--------------------------------------------------------------------------------------------------
 
-//Task Item
+//Task Form: CREATE TASK
+//Handles form submission/adding & sending data
+export type TaskInput = {
+  title: string;
+  description?: string;
+};
+
+export interface TaskFormProps {
+  onAddTask: (input: TaskInput) => void;
+}
+
+//Task Item: DISPLAY TASK
+//Handles displaying task and buttons (delete, toggle)
 export interface TaskItemProps {
     task: Task; //receives a full Task object that follows the Task interface. (Now in my component I can do things like 'task.title')
     onDelete: (id: string) => void;
     onToggle: (id: string) => void
 }
+
+
